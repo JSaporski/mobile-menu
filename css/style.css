@@ -1,0 +1,128 @@
+/***** GENERAL STYLES *****/
+:root {
+  font-size: 62.5%;
+  --white: #f5f5f5;
+  --black: #232323;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/***** MAIN CONTENT *****/
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem;
+  background-color: var(--black);
+}
+
+.logo {
+  font-size: 2.4rem;
+}
+
+.menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.menu li a {
+  font-size: 1.8rem;
+  padding: 1.5rem;
+}
+
+.abrir-menu,
+.fechar-menu {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.abrir-menu img,
+.fechar-menu img {
+  width: 3.2rem;
+}
+
+/***** JS *****/
+
+.js-menu .menu-mobile {
+  display: none;
+}
+
+.js-menu .menu.remover-menu,
+.js-menu .abrir-menu.remover-menu {
+  display: none;
+}
+
+.js-menu .menu-mobile.ativo {
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-content: start;
+  width: 60vw;
+  min-height: 100vh;
+  padding: 3rem;
+  background-color: var(--black);
+  animation: slideRight 0.3s ease-out;
+}
+
+.js-menu .menu-mobile.ativo .fechar-menu {
+  grid-column: 2;
+  justify-self: end;
+}
+
+.js-menu .menu-mobile.ativo > h2 {
+  grid-column: 1;
+  margin-bottom: 3rem;
+  font-size: 2.4rem;
+}
+
+.js-menu .menu-mobile.ativo ul {
+  grid-column: 1 / -1;
+}
+
+.js-menu .menu-mobile.ativo ul li + li {
+  margin-top: 1.5rem;
+}
+
+.js-menu .menu-mobile.ativo li a {
+  font-size: 1.6rem;
+}
+
+/***** ANIMATIONS *****/
+
+@keyframes slideRight {
+  from {
+    transform: translateX(380px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
